@@ -1,8 +1,8 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "BasePawn.h"
+#include "Projectile.h"
 #include "Components/CapsuleComponent.h"
-#include "DrawDebugHelpers.h"
 
 // Sets default values
 ABasePawn::ABasePawn()
@@ -34,14 +34,11 @@ void ABasePawn::RotateTurret(FVector LookAtTarget)
 void ABasePawn::Fire()
 {
 	FVector ProjectileSpawnPointLocation = ProjectileSpawnPoint->GetComponentLocation();
+	FRotator ProjectileOrientation = ProjectileSpawnPoint->GetComponentRotation();
 
-	DrawDebugSphere(
-		GetWorld(),
+	GetWorld()->SpawnActor<AProjectile>(
+		ProjectileClass, 
 		ProjectileSpawnPointLocation,
-		10.f,
-		32.f,
-		FColor::Green,
-		false,
-		2.f
-	);
+		ProjectileOrientation
+		);
 }

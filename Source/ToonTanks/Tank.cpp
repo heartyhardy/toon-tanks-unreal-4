@@ -32,8 +32,6 @@ void ATank::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-    UE_LOG(LogTemp, Warning, TEXT("WTF"));
-
     if(PlayerController)
     {
         FHitResult HitResult;

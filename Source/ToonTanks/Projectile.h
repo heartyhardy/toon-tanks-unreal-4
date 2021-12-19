@@ -21,8 +21,23 @@ protected:
 
 private:
 
+	UPROPERTY(EditAnywhere)
+	float Damage = 50.f;
+
 	UPROPERTY(EditDefaultsOnly, Category = "Combat")
 	UStaticMeshComponent* ProjectileMesh;
+
+	UPROPERTY(VisibleAnywhere, Category = "Movement")
+	class UProjectileMovementComponent* ProjectileMovementComponent;
+
+	UFUNCTION()
+	void OnProjectileHit(
+		UPrimitiveComponent* HitComp,
+		AActor* OtherActor,
+		UPrimitiveComponent* OtherComp,
+		FVector NormalImpulse,
+		const FHitResult& Hit
+	);
 
 public:	
 	// Called every frame

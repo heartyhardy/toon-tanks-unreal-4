@@ -48,7 +48,14 @@ void ATank::Tick(float DeltaTime)
             -1.f
         );
     }
+}
 
+void ATank::HandleDestruction()
+{
+    Super::HandleDestruction();
+    //Instead of destroying leave it Hidden so we get the camera view
+    SetActorHiddenInGame(true);
+    SetActorTickEnabled(false);
 }
 
 // Called to bind functionality to input

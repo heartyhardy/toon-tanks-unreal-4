@@ -41,7 +41,7 @@ void ATank::Tick(float DeltaTime)
         DrawDebugSphere(
             GetWorld(),
             HitResult.ImpactPoint,
-            10.f,
+            5.f,
             32,
             FColor::Red,
             false,

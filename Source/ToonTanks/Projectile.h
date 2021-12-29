@@ -36,6 +36,13 @@ private:
 	UPROPERTY(VisibleAnywhere, Category = "Movement")
 	class UProjectileMovementComponent* ProjectileMovementComponent;
 
+	// One forward declaration is enough. Therefore put it on top
+	UPROPERTY(EditAnywhere, Category = "Combat")
+	class USoundBase* HitSound;
+
+	UPROPERTY(EditAnywhere, Category = "Combat")
+	USoundBase* LaunchSound;
+
 	UFUNCTION()
 	void OnProjectileHit(
 		UPrimitiveComponent* HitComp,

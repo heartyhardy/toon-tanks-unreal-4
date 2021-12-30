@@ -43,6 +43,9 @@ private:
 	UPROPERTY(EditAnywhere, Category = "Combat")
 	USoundBase* LaunchSound;
 
+	UPROPERTY(EditAnywhere, Category = "Combat")
+	TSubclassOf<class UCameraShakeBase> HitCameraShakeClass;
+
 	UFUNCTION()
 	void OnProjectileHit(
 		UPrimitiveComponent* HitComp,

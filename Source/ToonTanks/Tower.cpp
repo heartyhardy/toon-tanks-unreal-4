@@ -10,7 +10,7 @@ void ATower::Tick(float DeltaTime)
 {
     Super::Tick(DeltaTime);
 
-    if(Tank)
+    if(Tank && Tank->IsAlive())
     {
         float Distance = GetDistanceToEnemy();
 
@@ -39,7 +39,9 @@ void ATower::BeginPlay()
 
 void ATower::CheckFireCondition()
 {
-    if(IsEnemyInRange())
+    if(!Tank) return;
+
+    if(IsEnemyInRange() && Tank->IsAlive())
     {
         Fire();
     }

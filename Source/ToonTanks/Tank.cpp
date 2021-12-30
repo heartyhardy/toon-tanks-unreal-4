@@ -56,6 +56,7 @@ void ATank::HandleDestruction()
     //Instead of destroying leave it Hidden so we get the camera view
     SetActorHiddenInGame(true);
     SetActorTickEnabled(false);
+    bAlive = false;
 }
 
 // Called to bind functionality to input
@@ -83,4 +84,9 @@ void ATank::Turn(float Value)
     DeltaRotation.Yaw = Value * TurnSpeed * UGameplayStatics::GetWorldDeltaSeconds(this);
 
     AddActorLocalRotation(DeltaRotation, true);
+}
+
+bool ATank::IsAlive()
+{
+    return bAlive;
 }

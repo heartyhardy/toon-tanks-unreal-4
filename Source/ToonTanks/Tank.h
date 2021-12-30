@@ -24,6 +24,8 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	APlayerController* GetPlayerController() const {return PlayerController;};
+
+	bool IsAlive();
 	
 protected:
 	// Called when the game starts or when spawned
@@ -43,6 +45,8 @@ private:
 	float TurnSpeed = 50.f;
 
 	APlayerController* PlayerController;
+
+	bool bAlive = true;
 
 	void Move(float Value);
 	void Turn(float Value);
